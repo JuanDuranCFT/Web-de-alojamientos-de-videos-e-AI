@@ -1,0 +1,129 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: #f8f9fa; /* Blanco quirófano */
+    color: #2c3e50; /* Azul médico oscuro */
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-weight: 300;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* LAYOUT 70/30 */
+.app { display: flex; height: 100vh; }
+
+/* VIDEO PRINCIPAL - 70% IZQUIERDA */
+.player-section {
+    flex: 7;
+    position: relative;
+    background: #ffffff; /* Blanco clínico */
+}
+
+.main-video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    background: #e8ecef; /* Gris clínico */
+    border-right: 3px solid #3498db; /* Azul médico */
+}
+
+/* SIDEBAR DERECHA - 30% INFO */
+.sidebar {
+    flex: 3;
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+    border-left: 3px solid #3498db; /* Borde azul médico */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: -4px 0 20px rgba(52, 152, 219, 0.1);
+}
+
+.info-panel { 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 100%;
+    justify-content: center;
+}
+
+/* FECHA - TONO AZUL CLÍNICO */
+.fecha-section { flex: 1; }
+#fecha {
+    font-size: 22px;
+    color: #2c3e50 !important; /* Azul oscuro médico */
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* HORA - CENTRAL BLANCO/AZUL */
+.hora-section { flex: 2; }
+.hora { 
+    font-size: 90px !important; 
+    font-weight: 200 !important; 
+    background: linear-gradient(135deg, #3498db, #2980b9); /* Gradiente médico */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 6px;
+    text-shadow: none;
+}
+
+/* CLIMA - CARD MÉDICA */
+.weather-section { flex: 1; }
+.weather {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    padding: 35px 25px;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 2px solid #e8ecef;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(52, 152, 219, 0.1);
+    backdrop-filter: blur(12px);
+}
+
+.weather:hover {
+    border-color: #3498db;
+    box-shadow: 0 12px 40px rgba(52, 152, 219, 0.15);
+}
+
+#clima-icon { 
+    font-size: 48px; 
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 4px rgba(52,152,219,0.3));
+}
+
+#ciudad { 
+    font-size: 18px; 
+    color: #34495e !important;
+    font-weight: 500;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+#temperatura { 
+    font-size: 48px !important; 
+    font-weight: 600 !important;
+    color: #2c3e50 !important;
+}
+
+/* TV OPTIMIZACIÓN */
+@media (max-width: 1920px) {
+    .hora { font-size: 80px !important; }
+    #temperatura { font-size: 44px !important; }
+}
+
+/* ANIMACIONES SUTILES CLÍNICAS */
+@keyframes fadeInClinical {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.sidebar { animation: fadeInClinical 1s ease-out; }
+.weather { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
